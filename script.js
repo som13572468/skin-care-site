@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     productResult.innerHTML = products.map(p => `
         <div class="post">
-            <img src="images/${p[1]}">
+            <img src="${p[1]}">
             <div><b>${p[0]}</b></div>
         </div>
     `).join("");
