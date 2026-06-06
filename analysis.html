@@ -6,7 +6,6 @@
 <title>피부분석</title>
 <link rel="stylesheet" href="style.css">
 
-
 <script>
 (function () {
 
@@ -46,11 +45,40 @@
         <label><input type="checkbox" value="각질"> 각질</label>
     </div>
 
-    <textarea id="skinInput"></textarea>
+    <!-- 사진 업로드 -->
+    <div class="upload-group">
+        <label for="skinImage">피부 사진 첨부</label>
+        <input
+            type="file"
+            id="skinImage"
+            accept="image/*"
+            onchange="previewImage(event)">
+    </div>
+
+    <!-- 미리보기 -->
+    <img
+        id="preview"
+        style="display:none; width:250px; margin:15px 0; border-radius:10px;">
+
+    <textarea
+        id="skinInput"
+        placeholder="피부 상태를 입력하세요"></textarea>
 
     <button class="analysis-btn" onclick="goResult()">AI 분석</button>
 
 </div>
+
+<script>
+function previewImage(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById("preview");
+
+    if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+    }
+}
+</script>
 
 <script src="script.js"></script>
 
